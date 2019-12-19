@@ -1,0 +1,293 @@
+<!-- INDEX PAGE INCLUDES SIDEBAR AND MAINVIEW. 
+  DEPENDING ON CHOISES IN SIDEBAR THE MAINVIEW WILL CHANGE, COMES FROM <router-outlet></router-outlet> 
+  APP-MESSAGES IS A TESTING PAGE THAT'S INCLUDED IN ALL PAGES *IS TO BE REMOVED*
+-->
+
+<div class="fixed-bg">
+  
+  <div class="sideBar " style="align-content: center;">
+    <div class="">
+        <a routerLink="overview">
+          <img src="../assets/icons/digpro_leverans.svg" style="margin-left: 1.5em; height:200px; width: 200px; ">
+        </a>
+
+        <!-- TREE STUCTURE TEST <app-sites-sidebar></app-sites-sidebar>-->
+
+        <ul class="sites" >
+          <li *ngFor="let site of sites" (click)="onSelect(site)">
+            <a routerLink="{{site.page}}" routerLinkActive="active" style="text-decoration: none">
+              {{site.name}}
+            </a>
+          </li>
+        </ul>
+      
+      <!--
+      <h4 style="color: white; text-align: center; margin-top: 2em">Digpro Leveransgruppen</h4>-->
+      <!--<ul class="sites" >
+        <li *ngFor="let site of sites" [class.selected]="site === selectedSite" (click)="onSelect(site)">
+          <a routerLink="{{site.page}}">
+            {{site.name}}
+          </a>
+        </li>
+      </ul>-->
+        
+      
+      <div id="shortcuts" class="row" style="padding-left: 40px">
+        <a href="http://bob/">
+          <img src="../assets/icons/bob_w.svg" style="height:50px; width: 50px; ">
+        </a>
+        <a href="https://bugzilla.digpro.se/">
+          <img src="../assets/icons/bz-w.svg" style="height:50px; width: 50px; ">
+        </a>
+        <a href="https://wiki.digpro.se/index.php/Main_Page">
+          <img src="../assets/icons/wiki-w.svg" style="height:50px; width: 50px; ">
+        </a>
+        <!--<span id="bz"></span>
+          <span id="bob"></span>
+          <span id="wiki"></span>-->
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="mainView">
+     
+    <div id="constant_header" class="row">
+      <div class="col-sm text-center">
+        <h3>
+          {{date_today | date:'yyyy-MM-dd'}}
+        </h3>
+      </div>
+      <div class="col-sm text-center">
+        <!--<h1>
+          Welcome  to {{ title }}!
+        </h1>-->
+      </div>
+      <div class="col-sm text-center">
+        <h3>
+          Freeze in: {{freeze_in}} days
+        </h3>
+      </div>
+    </div>
+    
+    <!-- QUOTE OF THE DAY 
+    <div *ngIf="quote">
+    <div class="scroll-left">
+      <p>{{quote?.quote?.body}} <b>- {{quote?.quote?.author}}</b></p>   
+    </div></div> -->
+    
+    <div id="siteContents">
+      <router-outlet></router-outlet>
+
+      <app-messages></app-messages>
+    </div>
+  </div>
+
+</div>
+    <!--  CALENDAR   
+<ng-template #modalContent let-close="close">
+  <div class="modal-header">
+    <h5 class="modal-title">Event action occurred</h5>
+    <button type="button" class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      Action:
+      <pre>{{ modalData?.action }}</pre>
+    </div>
+    <div>
+      Event:
+      <pre>{{ modalData?.event | json }}</pre>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
+  </div>
+</ng-template>
+
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn btn-primary"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="activeDayIsOpen = false">
+        Previous
+      </div>
+      <div
+        class="btn btn-outline-secondary"
+        mwlCalendarToday
+        [(viewDate)]="viewDate">
+        Today
+      </div>
+      <div
+        class="btn btn-primary"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="activeDayIsOpen = false">
+        Next
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+  </div>
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn btn-primary"
+        (click)="view = 'month'"
+        [class.active]="view === 'month'">
+        Month
+      </div>
+      <div
+        class="btn btn-primary"
+        (click)="view = 'week'"
+        [class.active]="view === 'week'">
+        Week
+      </div>
+      <div
+        class="btn btn-primary"
+        (click)="view = 'day'"
+        [class.active]="view === 'day'">
+        Day
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view
+    *ngSwitchCase="'month'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    [activeDayIsOpen]="activeDayIsOpen"
+    (dayClicked)="dayClicked($event.day)"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view
+    *ngSwitchCase="'week'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view
+    *ngSwitchCase="'day'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-day-view>
+</div>
+
+<br><br><br>
+
+<h3>
+  Edit events
+  <button
+    class="btn btn-primary pull-right"
+    (click)="addEvent()">
+    Add new
+  </button>
+  <div class="clearfix"></div>
+</h3>
+
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Primary color</th>
+      <th>Secondary color</th>
+      <th>Starts at</th>
+      <th>Ends at</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let event of events; let index = index">
+      <td>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="event.title"
+          (keyup)="refresh.next()">
+      </td>
+      <td>
+        <input
+          type="color"
+          [(ngModel)]="event.color.primary"
+          (change)="refresh.next()">
+      </td>
+      <td>
+        <input
+          type="color"
+          [(ngModel)]="event.color.secondary"
+          (change)="refresh.next()">
+      </td>
+      <!--
+      <td>
+        <input
+          class="form-control"
+          type="text"
+          mwlFlatpickr
+          [(ngModel)]="event.start"
+          (ngModelChange)="refresh.next()"
+          [altInput]="true"
+          [convertModelValue]="true"
+          [enableTime]="true"
+          dateFormat="Y-m-dTH:i"
+          altFormat="F j, Y H:i"
+          placeholder="Not set">
+      </td>
+      <td>
+        <input
+          class="form-control"
+          type="text"
+          mwlFlatpickr
+          [(ngModel)]="event.end"
+          (ngModelChange)="refresh.next()"
+          [altInput]="true"
+          [convertModelValue]="true"
+          [enableTime]="true"
+          dateFormat="Y-m-dTH:i"
+          altFormat="F j, Y H:i"
+          placeholder="Not set">
+      </td>
+      <td>
+        <button
+          class="btn btn-danger"
+          (click)="events.splice(index, 1); refresh.next()">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>-->
+
+
+
+<!--
+<div class="back">
+<div class="blurred-box">
+      <div class="user-login-box">
+        <span class="user-icon"></span>
+        <div class="user-name">Gilfoyle</div>
+        <input class="user-password" type="text" />
+      </div>
+    </div>
+  
+</div>
+-->

@@ -1,0 +1,106 @@
+
+.statusField{
+    padding:  0;
+    margin: 0;
+}
+.givenStatus {
+    width: 100px !important;
+}
+
+#documentIcon{
+    font-size: 3em;
+}
+.boxHeader{
+    color: white;
+    cursor: pointer;
+}
+
+
+.openW{
+    height: 22em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 80%;
+    max-width: 100%;
+}
+
+.closedW{
+  min-height: 3em;
+  max-height: 5em;
+  max-width: 100%;
+  max-width: 100%;
+  /*width: 32em;*/
+}
+
+/*
+.All {
+    margin: 0 2em 0 2em ;
+}
+.dark-div{
+    margin-bottom: 1em;
+    padding:  2em;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+.bugLine{
+    font-size: 2em;
+    padding: 1em;
+    outline: gray;
+    outline-style: solid;
+}
+
+.content{
+    background-color: white;
+    height: 15em;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 0;
+    margin-left: 2em;
+}
+
+.overviewbox{
+    padding: 2em 2em 0 2em;
+}
+.contentsBox{
+    height: 22em;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 0 2em 2em 0;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5); 
+}
+.statusBox {
+    margin-top: 1em;
+    padding:  1em 0 1em 1em;
+    border: 1px;
+    border-style: solid;
+    border-color: grey;  
+    background-color: white;
+
+}
+.Not-started  {
+    background: rgba(202, 121, 121, 0.5);
+}
+  
+.Started  {
+    background: rgba(0, 255, 0, 0.5);
+}
+
+.Done  {
+    background: rgba(0, 0, 255, 0.5);
+}
+
+
+*/

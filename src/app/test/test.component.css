@@ -1,0 +1,163 @@
+/*.All {
+    margin: 0 2em 0 2em ;
+}
+*/
+
+.testersName{
+    cursor: pointer;
+}
+
+.show {
+    overflow: visible;
+    height: auto;
+}
+/*
+.Box{
+    padding: 2em 4em 2em 2e,;
+}*/
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); 
+}
+
+.bug {
+    /*font-size: 1.5em;*/
+    margin: 0 0 .5em 0;
+    padding: 1em;
+}
+
+.titleLine{
+    text-decoration: underline;
+    font-size: 1em;
+    color: black;
+}
+.red {
+    background: #f9bdcc;
+}
+  
+.blue  {
+    background: #98c4e2;
+}
+
+.yellow  {
+    background: #f2dfbd;
+}
+  
+a:link {
+    color: black;
+    text-decoration: underline;
+
+}
+a:visited {
+    color: black;
+    text-decoration: underline;
+}
+a:hover {
+    color: blue;
+}
+
+/* TESTERS SWEDEN NAMES SCROLL */
+.textBox {
+    width: 250px;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+}
+.textBox span {
+    position: absolute;
+    white-space: nowrap;
+    transform: translateX(0);
+    transition: 5s;
+}
+.textBox:hover span {
+    transform: translateX(calc(200px - 100%));
+}
+   
+
+.dark-div2{
+    /*margin-bottom: 1em;
+    padding:  2em;*/
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+
+  /**************/
+  table {
+    width: 100%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: #f5f5f5;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+  
+  .example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .example-element-description {
+    padding: 16px;
+  }
+  
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
+
+
+
+
+
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted b{
+    color: black;
+    size: 1em;
+}
+  
+
+.rowsOfdata {
+    border-top: 1px solid rgb(207, 207, 207);
+    border-bottom: 1px solid rgb(207, 207, 207);
+  }
+  
+.idMargin{
+    padding-left: 1em;
+}

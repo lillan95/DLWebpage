@@ -1,0 +1,87 @@
+<div class="All">
+  <div class="overviewbox row">
+    <div class="col-sm-7" >
+      <div class="row" > <!-- (click)="isCollapsed1 = !isCollapsed1"[attr.aria-expanded]="!isCollapsed1" aria-controls="collapseExample" -->
+        <div class="col-sm-10" style="position: relative;">
+
+          <h3 class=""><i class="fa fa-map"></i> Manuals </h3>
+          
+          <img  id = "c" src="../assets/icons/divider.svg" > 
+          
+        </div>
+        <!--<div class="col-md-1">
+            <h3 [hidden]="!isCollapsed1"><i class="fa fa-angle-down"></i></h3>
+            <h3 [hidden]="isCollapsed1"><i class="fa fa-angle-up"></i></h3>
+          </div>-->
+      </div>
+      <div class="whiteContentsBox"> <!-- [ngbCollapse]="isCollapsed1" -->
+        
+        <div style="border:solid; border-color:rgba(0, 0, 0, 0.2)">
+          <div class="whiteStatusBox" *ngFor="let data of datas">
+            {{data}}
+
+            <mat-form-field class="col col-md-3 offset-md-9">
+              <mat-select placeholder="" [formControl]="panelColor" panelClass="{{choice}}">
+                <mat-option *ngFor="let choice of status" value="{{choice}}">{{choice}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="input-group">
+              <textarea class="form-control custom-control" #newComment (keyup.enter)="addComment(newComment.value)" placeholder="Comment.." style="resize:none">{{comment}}</textarea>     
+              <span class="input-group-addon btn btn-primary" (click)="addComment(newComment.value);">Save</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+      <memobox></memobox> 
+    </div>
+  </div>
+
+<br><br>
+
+
+
+  <div class="row">
+    <div class="col-sm-7">
+      <h3 class="titleTexts">
+        Dock needed (10)
+      </h3> 
+      <div class="content">
+        <table class=" table table-hover ">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let data of datas">
+                <th>
+                  {{data}}
+                </th>
+              </tr>
+            </tbody>
+          </table> 
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+      <h3 class="titleTexts">
+        Dokument statistics
+      </h3> 
+      <div class="content" >
+        <table class=" table table-hover ">
+          <tbody>
+              <tr *ngFor="let data of datas">
+                <th>
+                  {{data}}
+                </th>
+              </tr>
+          </tbody>
+        </table> 
+      </div>
+    </div>
+  </div>
+</div>

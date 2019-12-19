@@ -1,0 +1,16 @@
+<div>
+  sdaifuwehafajknöo
+</div>
+
+<div *ngIf="site">
+
+    <h2>{{ site.name | uppercase }} Details</h2>
+    <div><span>id: </span>{{site.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="site.name" placeholder="name"/>
+      </label>
+    </div>
+  
+  </div>
+  

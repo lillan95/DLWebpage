@@ -1,0 +1,31 @@
+<!--<p>
+  sites-sidebar works!
+</p>-->
+
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" style="background:none;">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding style="background:none;">
+    <button mat-icon-button disabled></button>
+    {{node.filename}} : {{node.type}}
+  </mat-tree-node>
+
+  <mat-tree-node class="sites yellow" *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+    <button class="" mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'toggle ' + node.filename">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    <a class="onHover">
+    {{node.filename}} : {{node.type}}
+    </a>
+  </mat-tree-node>
+</mat-tree>
+
+<!--
+<ul class="sites" >
+  <li *ngFor="let site of sites" (click)="onSelect(site)">
+    <a routerLink="{{site.page}}" routerLinkActive="active">
+      {{site.name}}
+    </a>
+  </li>
+</ul>-->

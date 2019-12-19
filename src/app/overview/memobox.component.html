@@ -1,0 +1,17 @@
+
+<div id="memobox" class="">
+    <div class="memos">
+        <ul><li *ngFor="let memo of memos">{{memo}}</li></ul>
+    </div>
+    <!--<div class="memo-form row  justify-content-center" style="width: 100%">
+        <input #newMemo (keyup.enter)="addMemo(newMemo.value)" (blur)="addMemo(newMemo.value); newMemo.value='' " style="width:70%">
+        <button class=" btn btn-primary" (click)="addMemo(newMemo.value)">Send</button>
+    </div>-->
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" #newMemo (keyup.enter)="addMemo(newMemo.value);newMemo.value=''">
+        <div class="input-group-append">
+            <button class="btn btn-primary" (click)="addMemo(newMemo.value);newMemo.value=''" type="button">Send</button>    
+        </div>
+    </div>
+</div>

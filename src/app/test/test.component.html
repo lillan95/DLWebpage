@@ -1,0 +1,337 @@
+<!-- <table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+
+  Expanded Content Column - The detail row is made up of this one column that spans across all columns
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+          <div class="example-element-position"> {{element.position}} </div>
+          <div class="example-element-symbol"> {{element.symbol}} </div>
+          <div class="example-element-name"> {{element.name}} </div>
+          <div class="example-element-weight"> {{element.weight}} </div>
+        </div>
+        <div class="example-element-description">
+          {{element.description}}
+          <span class="example-element-description-attribution"> -- Wikipedia </span>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table> -->
+
+<!--  TO DO:  MAKE LIST DISPLAYS NICER. 
+              INCLUDE dark-div OR NOT? 
+              MAKE memo AND test on postgres LESS SIMILAR
+-->
+
+<div class="">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2 class="titleTexts">
+        Bugs in queue: 10 {{bugsQueue}}
+      </h2>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2 (click)="show = !show" class="testersName titleTexts"  matTooltip="Click here to change testers">
+            Testers sweden this week:
+          </h2>
+        </div>
+        <div class="col-sm-6">
+          <h2 class="textBox titleTexts"> <span> {{value}} </span>  </h2>
+        </div>
+         
+      </div>
+
+      <div *ngIf="show" style="margin-bottom: 1em;">
+        <p>
+          Write in names and hit 'enter' to save
+        </p>
+        <input #box (keyup.enter)="onEnter(box.value) ">
+      </div>
+    </div>
+  </div>
+
+  <!--
+
+
+  <table mat-table [dataSource]="dataSource" multiTemplateDataRows  class="mat-elevation-z8">
+<ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+<th mat-header-cell *matHeaderCellDef> {{column}} </th>
+<td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+</ng-container>
+
+<ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+     <div class="example-element-detail"
+          [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+       <div class="example-element-diagram">
+         <div class="example-element-position"> {{element.id}} </div>
+         <div class="example-element-symbol"> {{element.importance}} </div>
+         <div class="example-element-name"> {{element.milestone}} </div>
+       </div>
+       <div class="example-element-description">
+         {{element.description}}
+         <span class="example-element-description-attribution"> -- Wikipedia </span>
+       </div>
+     </div>
+    </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+     class="example-element-row"
+     [class.example-expanded-row]="expandedElement === element"
+     (click)="expandedElement = element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+    
+    
+
+  -->
+
+  
+  <div class="row">
+    <div class="col-sm-6">    <!-- SHOULD WE USE TRANSPARENT BACK? -->
+      <h2 class="titleTexts">
+        Bugs older than 7 days (tot: {{objectKeys(something).length}}) <!--datas.length--> 
+
+      </h2> 
+      <div  *ngIf="datas.length == 0;" class=" Box" >
+          <iframe src="https://giphy.com/embed/wijMRo7UZXSqA" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p>Good job!</p>
+      </div>
+
+      <div *ngIf="datas.length != 0;" class=" Box" >
+        <div class="content">
+
+          <!--<div class="example-container mat-elevation-z8">
+            <table mat-table [onedataSource]="dataSource">
+              dfasdf
+            </table>
+          </div>-->
+
+          
+          <table class="bug table table-hover "> 
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Importance</th>
+              </tr>
+            </thead>  
+
+            <tbody  *ngFor="let key of objectKeys(something)"  matTooltip="{{something[key]['desc'] | slice:0:300 }}...">
+              <tr>
+                <th scope="row" >Bug {{something[key]['id']}} </th>  <!-- PERHAPS?    matTooltip="{{something[key]['importance']}}"    -->
+                <td> {{something[key]['importance']}} </td>
+              </tr>
+            </tbody>
+          </table><!---->
+        </div>
+        <!--
+        <ul class="content">
+          <div class="row bug red" *ngFor="let data of datas">
+            <a href="">
+              {{data}}
+            </a>
+          </div>
+        </ul>-->
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5">
+        <memobox></memobox> 
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h2 class="titleTexts">
+      Testers Sweden
+    </h2> 
+    <div class=" content" >
+      <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z8">
+        <div class="row">
+
+          <!--<ng-container   matColumnDef="{{column}}" class="col-sm-4"  *ngFor="let column of displayedColumns">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>   <b>{{column}}</b>  </th>
+            <td class="{{element.importance}} rowsOfdata" mat-cell *matCellDef="let element" matTooltip="{{element.desc | slice:0:300 }}...">   <div> {{element[column] }} </div>   </td>
+          </ng-container>-->
+
+          <ng-container matColumnDef="id" class="col-sm-4">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header  ><b> ID </b></th>
+            <td class="{{element.importance}} rowsOfdata" mat-cell *matCellDef="let element" matTooltip="{{element.desc | slice:0:300 }}..."> <b class="idMargin"> Bug {{element.id}} </b> </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="importance" class="col-sm-2">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header ><b> Importance </b></th>
+            <td class="{{element.importance}} rowsOfdata" mat-cell *matCellDef="let element"> {{element.importance}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="milestone" class="col-sm-1">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header ><b> Target-milestone </b></th>
+            <td class="{{element.importance}} rowsOfdata" mat-cell *matCellDef="let element"> {{element.milestone}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="desc" class="col-sm-5">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header ><b> Description </b></th>
+            <td class="{{element.importance}} rowsOfdata" mat-cell *matCellDef="let element"> {{element.desc | slice:0:30 }}... <a href="#" class="readMore"> More > </a> </td>
+          </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </div>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Self aware panel
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+<!--
+<div class="row">
+  <div class="col-12">
+    <h2 class="titleTexts">
+      Testers Sweden
+    </h2> 
+    <div class=" content" >
+      <table class=" table ">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Importance</th>
+            <th scope="col">Target-Milestone</th>
+            <th scope="col">Desc</th>
+          </tr>
+        </thead>  
+
+        <tbody  *ngFor="let key of objectKeys(something)" >
+          <tr class="{{something[key]['importance']}}">
+            <th scope="row">Bug {{something[key]['id']}} </th>
+            <td> {{something[key]['importance']}} </td>
+            <td> {{something[key]['milestone']}} </td>
+            <td class="small-description "> {{something[key]['desc'] | slice:0:20 }}... <a href="#" class="readMore"> More > </a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>-->
+      <!--
+      <ul class="content">
+        <div class="row bug yellow" *ngFor="let data of datas">
+          <div class="col-sm-3">
+            <a href="">
+              {{data}}
+            </a>
+          </div>
+          <div class="col-sm-3">
+            <div class="row">
+              <p class="titleLine">importance </p>
+            </div>
+            <div class="row small-description">
+              P5
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="row">
+              <h3 class="titleLine">Target-milestone</h3>
+            </div>
+            <div class="row small-description">
+              8,6
+            </div>
+          </div>
+          <div class="col-sm-3 bugDescription">
+            <p class="small-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada a augue quis eleifend. Maecenas nibh urna, commodo quis velit ut, posuere molestie diam. Mauris urna arcu, convallis eu tellus vel, tempor convallis augue. Integer enim dolor, efficitur in vestibulum sit amet, aliquet at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate sit amet eros quis finibus. Nam consequat gravida mauris nec tristique. Fusce non nibh nec tortor sagittis cursus vel in turpis. Etiam quis sollicitudin ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse pellentesque bibendum libero, et suscipit justo vulputate a. Pellentesque condimentum vel dolor at egestas.
+
+                Sed orci est, consequat ac ante quis, auctor porta lectus. Nullam ut tincidunt lacus. Vivamus eget sapien mauris. Curabitur urna massa, sagittis quis accumsan et, semper interdum tellus. Quisque sodales lectus et tellus malesuada consequat. Integer ullamcorper justo ac erat lobortis fringilla. Pellentesque posuere bibendum nisl non lobortis. Sed pharetra tincidunt sapien, sit amet tempor erat vulputate et.
+                
+                Suspendisse et feugiat dui. Aliquam interdum ligula a massa volutpat venenatis. Nam ut sem turpis. Morbi porttitor erat rhoncus felis luctus semper. In hac habitasse platea dictumst. Fusce in metus porta, finibus elit a, mattis ipsum. Pellentesque eu mauris id metus pulvinar maximus. Mauris mattis tempus vulputate. Aliquam odio metus, facilisis non pellentesque nec, posuere et nunc.
+                
+                Praesent posuere mi vitae dolor feugiat maximus. Aliquam nec metus imperdiet est pellentesque lobortis ac ut odio. Vestibulum euismod, leo nec tempor bibendum, orci lacus fringilla ipsum, venenatis tincidunt lorem mauris sed ante. Donec at enim ipsum. Sed condimentum quam sit amet dignissim sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ullamcorper suscipit cursus. Nullam vitae odio mi.
+                
+                Sed ultricies, lorem in consequat convallis, urna ex cursus velit, a facilisis nunc ante et justo. Sed urna mauris, lacinia id felis tincidunt, consequat bibendum neque. Nulla elementum leo felis, convallis pulvinar dui luctus in. In at volutpat metus. Morbi dignissim velit a nulla sagittis, in laoreet neque cursus. Vestibulum egestas enim at arcu interdum, id vulputate magna lobortis. Vivamus id ligula risus. In sit amet facilisis sem. Nunc id elementum erat, ut bibendum massa. Duis faucibus hendrerit enim, id porta tellus molestie vel. Duis laoreet dapibus pellentesque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur fringilla erat nec justo pharetra, et accumsan tortor lacinia. Praesent dictum, lorem eget placerat fermentum, tellus metus auctor odio, et accumsan purus ex nec tortor. Aenean in metus vel orci maximus cursus id sed lectus.</p>
+            <a href="#" class="readMore">More > </a>
+          </div>
+        </div>
+      </ul>-->
+
+  <br>
+
+  <h2 class="titleTexts">
+    Testcase needed (4)
+  </h2> 
+  <div class="row">
+    <div class="col-sm-7  Box" >
+      <div *ngIf="datas.length != 0;" class=" Box" >
+          <div class="content">
+            <table class="bug table table-hover "> <!-- table-dark-->
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                </tr>
+              </thead>  
+      
+              <tbody  *ngFor="let data of datas" >
+                <tr>
+                  <th scope="row">{{data}} </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--
+          <ul class="content">
+            <div class="row bug red" *ngFor="let data of datas">
+              <a href="">
+                {{data}}
+              </a>
+            </div>
+          </ul>-->
+        </div>
+    </div>
+
+    <div class="col-sm-1"></div>
+
+    <div class="col-sm-4">
+        <memobox></memobox> 
+    </div>
+  </div>
+
+  <div class="text-center" style="background-color: tan">
+    <h1>TEST STATISTICS</h1>
+  </div>
+
+</div>

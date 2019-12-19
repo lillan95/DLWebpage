@@ -1,0 +1,30 @@
+
+h2{
+    color: white;
+    margin-bottom: 2em;
+}
+
+  .sites {
+    list-style-type: none;
+    width: 8em;
+  }
+  .sites li {
+    cursor: pointer;
+    position: center;
+    color: white;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+   
+  }
+  .sites li:hover {
+    color: yellow;
+    border-bottom: 2px solid yellow;
+    text-decoration: none; 
+  }
+
+  .selected {
+    color: yellow !important;
+    border-bottom: 2px solid yellow;
+    text-decoration: none;
+  }

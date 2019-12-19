@@ -1,0 +1,42 @@
+
+Dropdown menu test:
+<div class="col">
+  <div ngbDropdown class="d-inline-block">
+    <p class="" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</p>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button class="dropdown-item">Action - 1</button>
+      <button class="dropdown-item">Another Action</button>
+      <button class="dropdown-item">Something else is here</button>
+    </div>
+  </div>
+</div>
+
+<div class="">
+  <div class="row" (click)="isCollapsed1 = !isCollapsed1"[attr.aria-expanded]="!isCollapsed1" aria-controls="collapseExample">
+    <div class="">
+      <h2>Test</h2>
+    </div>
+    <div class="">
+      <h2 [hidden]="isCollapsed1"><i class="fa fa-angle-down"></i></h2>
+      <h2 [hidden]="!isCollapsed1"><i class="fa fa-angle-up"></i></h2>
+    </div>
+  </div>
+  <div class="" [ngbCollapse]="!isCollapsed1">
+    <ul class="sites">
+      <li class=" row" *ngFor="let data of datas">
+        {{data}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--
+  <div *ngIf="messageService.messages.length">
+
+  <h2>Messages</h2>
+  <button class="clear"
+          (click)="messageService.clear()">clear</button>
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
+</div>
+-->

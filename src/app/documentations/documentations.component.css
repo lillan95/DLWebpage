@@ -1,0 +1,32 @@
+
+.boxHeader{
+    color: white;
+    cursor: pointer;
+}
+
+body{
+    background-color: #f0f0f0;
+    width: 700px;
+    float: center;
+  }
+
+hr.style13 {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #ff0000 inset;
+}
+
+#a {
+position: relative;
+background-color: red;
+height: 200px;
+width: 200px;
+}
+
+#c {
+top: 40px;
+position: absolute;
+height: auto; 
+width: 115%;
+
+}

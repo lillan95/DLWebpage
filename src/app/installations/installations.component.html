@@ -1,0 +1,169 @@
+<!--
+   
+<p>Click the "Try it" button to make the DIV element resizable:</p>
+
+<div id="myDIV" class="resizeDiv">
+  <p>Click the button, then drag the bottom right corner to resize this DIV element.</p>
+</div>
+
+-->
+
+<div class="overviewbox row">
+  <div class="col-sm-6 h-100">
+
+    <div class="dark-div  resizeDiv " [ngClass]="{openW: isCollapsed1 == true, closedW: isCollapsed1 != true}">
+      <div class="row" (click)="isCollapsed1 = !isCollapsed1"[attr.aria-expanded]="!isCollapsed1" aria-controls="collapseExample">
+        <div class="dark-header col-sm-10">
+          <h3 ><i class="fa fa-refresh"></i> {{datas.length}} Upgrades this week </h3> 
+        </div>
+        <div class="col-md-1">
+          <h3 [hidden]="isCollapsed1"><i class="fa fa-angle-down"></i></h3>
+          <h3 [hidden]="!isCollapsed1"><i class="fa fa-angle-up"></i></h3>
+        </div>
+      </div>
+
+      <div id="mainDiv" class="contentsBox" [ngbCollapse]="!isCollapsed1"> <!-- style="resize: both; overflow: auto;"-->
+        <ul>
+          <form>
+            <div class="statusBox row" *ngFor="let data of datas" > <!--[ngStyle]="{'background-color': '#'+selectedValue}" -->
+              <div id=data [ngStyle]="{'background' : '#' + selectedValue, 'width' : '100%'}" class="col-sm-12">
+                {{data}}
+                
+                <mat-form-field   class="col col-md-3 offset-md-9">
+                  <mat-select  placeholder="" [formControl]="colorControl"   [(ngModel)]="selectedValue"    required> <!--(selectionChange)="triggerColorChange()"-->
+                    <mat-option (click)="setChanges(choice.choice, choice.color)" *ngFor="let choice of options" [(value)]="choice.color">
+                      {{choice.choice}}
+                    </mat-option>
+                  </mat-select><!--
+                  <mat-error *ngIf="colorControl.hasError('required')">Please choose an choice</mat-error>
+                  <mat-hint>{{colorControl.value?.color}}</mat-hint>-->
+                </mat-form-field>
+              </div>
+
+              <p> Selected value: {{selectedValue}} </p>
+                        
+              <div class="input-group">
+                <textarea class="form-control custom-control" #newComment (keyup.enter)="addComment(newComment.value)" placeholder="Comment.." style="resize:vertical">{{comment}}</textarea>     
+                <span class="input-group-addon btn btn-primary" (click)="addComment(newComment.value);">Save</span>
+              </div>
+              <!--<select (change)="selectChangeHandler($event)">
+                <option *ngFor="let choice of node" value="{{choice.color}}">{{choice.progress}}</option>
+              </select>-->
+            </div>
+          </form>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dark-div resizeDiv " [ngClass]="{openW: isCollapsed2 == true, closedW: isCollapsed2 != true}" ><!--style="overflow: auto;"-->
+      <div class="" >
+        <div class="row" (click)="isCollapsed2 = !isCollapsed2"[attr.aria-expanded]="!isCollapsed2" aria-controls="collapseExample">
+          <div class="dark-header col-sm-10">
+            <h3><i class="fa fa-wrench"></i> {{datas.length}} Installations this week </h3>
+          </div>
+          <div class="col-md-1">
+            <h3 [hidden]="isCollapsed2"><i class="fa fa-angle-down"></i></h3>
+            <h3 [hidden]="!isCollapsed2"><i class="fa fa-angle-up"></i></h3>
+          </div>
+        </div>
+        <div class="contentsBox " [ngbCollapse]="!isCollapsed2">
+          
+          <ul><div class="statusBox row" *ngFor="let data of datas">
+            {{data}}
+<!--
+            <mat-form-field class="col col-md-6 offset-md-6">
+              <mat-select placeholder="" [formControl]="panelColor" panelClass="{{choice}}">
+                <mat-option *ngFor="let choice of status" value="{{choice}}">{{choice}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+-->
+            <div class="input-group">
+              <textarea class="form-control custom-control" #newComment (keyup.enter)="addComment(newComment.value)" placeholder="Comment.." style="resize:none">{{comment}}</textarea>     
+              <span class="input-group-addon btn btn-primary" (click)="addComment(newComment.value);">Save</span>
+            </div>
+          </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dark-div resizeDiv " [ngClass]="{openW: isCollapsed3 == true, closedW: isCollapsed3 != true}">
+      <div class="row" (click)="isCollapsed3 = !isCollapsed3"[attr.aria-expanded]="!isCollapsed3" aria-controls="collapseExample">
+        <div class="dark-header col-sm-10">
+          <h3><i class="fa fa-tasks"></i> {{datas.length}} Service moves this week  </h3>
+        </div>
+        <div class="col-md-1">
+          <h3 [hidden]="isCollapsed3"><i class="fa fa-angle-down"></i></h3>
+          <h3 [hidden]="!isCollapsed3"><i class="fa fa-angle-up"></i></h3>
+        </div>
+      </div>
+      <div class="contentsBox" [ngbCollapse]="!isCollapsed3">
+          <ul><div class="statusBox row" *ngFor="let data of datas">
+            {{data}}
+            <!--
+            <mat-form-field class="col col-md-6 offset-md-6">
+              <mat-select placeholder="" [formControl]="panelColor" panelClass="{{choice}}">
+                  <mat-option *ngFor="let choice of status" value="{{choice}}">{{choice}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+  -->
+              <div class="input-group">
+                <textarea class="form-control custom-control" #newComment (keyup.enter)="addComment(newComment.value)" placeholder="Comment.." style="resize:none">{{comment}}</textarea>     
+                <span class="input-group-addon btn btn-primary" (click)="addComment(newComment.value);">Save</span>
+              </div>
+            </div>
+          </ul>
+        </div>
+    </div>
+    <div class="dark-div resizeDiv " [ngClass]="{openW: isCollapsed4 == true, closedW: isCollapsed4 != true}">
+      <div class="row" (click)="isCollapsed4 = !isCollapsed4"[attr.aria-expanded]="!isCollapsed4" aria-controls="collapseExample">
+          <div class="dark-header col-sm-10">
+            <h3><i class="fa fa-ellipsis-h"></i> {{datas.length}} Other errands this week </h3>
+          </div>
+          <div class="col-md-1">
+            <h3 [hidden]="isCollapsed4"><i class="fa fa-angle-down"></i></h3>
+            <h3 [hidden]="!isCollapsed4"><i class="fa fa-angle-up"></i></h3>
+          </div>
+        </div>
+      <div class="contentsBox" [ngbCollapse]="!isCollapsed4">
+        <ul><div class="statusBox row" *ngFor="let data of datas">
+          {{data}}
+
+          <!--<mat-form-field class="col col-md-6 offset-md-6">
+            <mat-select placeholder="" [formControl]="panelColor" panelClass="{{choice}}">
+              <mat-option *ngFor="let choice of status" value="{{choice}}">{{choice}}</mat-option>
+            </mat-select>
+          </mat-form-field>-->
+
+          <div class="input-group">
+            <textarea class="form-control custom-control" #newComment (keyup.enter)="addComment(newComment.value)" placeholder="Comment.." style="resize:none">{{comment}}</textarea>     
+            <span class="input-group-addon btn btn-primary" (click)="addComment(newComment.value);">Save</span>
+          </div>
+          <!--<select (change)="selectChangeHandler($event)">
+            <option *ngFor="let choice of node" value="{{choice.color}}">{{choice.progress}}</option>
+          </select>-->
+        </div></ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-5"> <!-- GOOGLE HELP https://calendar.google.com/calendar/r/settings/calendar/Y2FsZW5kYXJAZGlncHJvLnNl  -->
+    <iframe src="https://calendar.google.com/calendar/embed?title=Install Calendar&amp;showPrint=0&amp;mode=WEEK&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=calendar%40digpro.se&amp;color=%23A32929&amp;ctz=Europe%2FStockholm" style="border-width:0" width="100%" height="400px" frameborder="0" scrolling="no"></iframe>
+      <!--<div class="text-center" style="background-color: tan">
+        <h1>INSTALL CALENDAR</h1>
+      </div>-->
+
+    <iframe src="https://calendar.google.com/calendar/embed?title=Upcoming Updates&amp;showPrint=0&amp;showTabs=0&amp;mode=AGENDA&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=calendar%40digpro.se&amp;color=%2323164E&amp;ctz=Europe%2FStockholm" style="border-width:0; margin-top:2em;"  width="100%" height="400px" frameborder="0" scrolling="no;"></iframe>
+      <!--<div class="text-center" style="background-color: tan">
+        <h1>UPCOMING UPDATES</h1>
+      </div>-->
+    
+      <div class="text-center" style="background-color: tan">
+        <h1>STATISTICS</h1>
+      </div>
+        
+  </div>
+</div>
+
