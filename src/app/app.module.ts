@@ -20,7 +20,6 @@ import 'flatpickr/dist/flatpickr.css';
 import { CommonModule } from '@angular/common';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
 import { FlatpickrModule } from 'angularx-flatpickr';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {
   MatAutocompleteModule,
   MatOptionModule,
@@ -157,32 +156,27 @@ const materialModules = [
     MatTreeModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule,CommonModule,
-    FormsModule,
+    HttpModule,
+    CommonModule,
     NgbModalModule.forRoot(),
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot(),
     ReactiveFormsModule,
     MatTableModule,
-    BrowserModule,
     MatSortModule,
-    MatOptionModule,
-    FormsModule,    
+    MatOptionModule,  
     MatIconModule,
     MatButtonModule, 
     MatCheckboxModule,
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
     MatNativeDateModule,
-    ReactiveFormsModule,
     MatSelectModule,
-    BrowserAnimationsModule,
     MatTooltipModule,
     MatExpansionModule,
-    BrowserModule, FormsModule, MatListModule, MatExpansionModule, MatSortModule, BrowserAnimationsModule, MatPaginatorModule, MatInputModule,
+    MatListModule, 
+    MatPaginatorModule, 
+    MatInputModule,
     
     AppRoutingModule
   ],
@@ -235,5 +229,3 @@ const materialModules = [
 
 export class AppModule { }
 export class PizzaPartyAppModule { }
-
-platformBrowserDynamic().bootstrapModule(AppModule);
