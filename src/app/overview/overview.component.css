@@ -20,6 +20,7 @@ p {
 }*/
 
 #quickView{
+  margin-top: 2em;
   height: 20em;
 }
 .quickBug {

@@ -39,6 +39,9 @@ export class InstallationsComponent implements OnInit {
 
   constructor() { }
   public isCollapsed1 = false;
+  public isCollapsed2 = false;
+  public isCollapsed3 = false;
+  public isCollapsed4 = false;
   
   datas = ['1', '2', '3', '4', '5','6', '7','8'];
 
@@ -52,7 +55,7 @@ export class InstallationsComponent implements OnInit {
   }
 
 
-  comment = ['This is difficult'];
+  comment = ['This will be comments'];
   //memos: Memo[] = [];
   addComment(newComment: string) {
     console.log("add new comment" + newComment)

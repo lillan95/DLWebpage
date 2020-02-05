@@ -34,7 +34,7 @@ export class DocumentationsComponent implements OnInit {
     ngOnInit() {
     }
   
-    comment = ['This is difficult'];
+    comment = ['This will be comments'];
     //memos: Memo[] = [];
     addComment(newComment: string) {
       console.log("add new memo" + newComment)

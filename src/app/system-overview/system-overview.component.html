@@ -1,4 +1,79 @@
 <div class="">
+  
+  <div class="overviewbox row">
+    <div class="col-sm-7" >
+      <div class="row" >  
+        <div class="col-sm-10" style="position: relative;">
+
+            <h3 class="boxHeader"><i class="fa fa-eye"></i> System overview </h3>
+            
+          </div>
+        </div>
+        <div class="whiteSystemBox"> 
+          
+          <div class=" whiteInnerSystemBox" >
+
+
+            <div class="">
+                <ul><div class="statusBox row" *ngFor="let data of datas">
+                    <div class="col-md-2  text-center">
+                      <div class="row">
+                        Days to go
+                      </div>
+                      <h1>{{data}}</h1>
+                    </div>
+      
+                    <div class="col-md-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <i id="documentIcon" class=" fa fa-file"></i>
+                        </div>
+                        <div class="col-md-8">
+                          Titel
+                          <div class="row">
+                            Description
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="col-md-3">
+                      Accountable
+                      <div class="row">
+                        Lena. U 
+                        Arvid G.
+                      </div>
+                    </div>
+      
+                    <div class="col-md-3">
+                      <mat-form-field class="col col-md-6 offset-md-6 statusField  " >
+                        <mat-select class="givenStatus " placeholder="" [formControl]="panelColor" panelClass="{{choice}}" >
+                          <mat-option *ngFor="let choice of status" value="{{choice}}">{{choice}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+      
+                    <div class="input-group">
+                      <textarea class="form-control custom-control" #newComment (keyup.enter)="addComment(newComment.value)" placeholder="Comment.." style="resize:vertical">{{comment}}</textarea>     
+                      <span class="input-group-addon btn btn-primary" (click)="addComment(newComment.value);">Save</span>
+                    </div>
+                  </div>
+                </ul>
+            </div>
+
+            
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4">
+        <memobox></memobox> 
+      </div>
+    </div>
+
+  <!--
   <div class="overviewbox row">
     <div class="col-sm-7 h-100 " >
       <div class="dark-div  resizeDiv " [ngClass]="{openW: isCollapsed1 != true, closedW: isCollapsed1 == true}">
@@ -65,7 +140,7 @@
       <memobox></memobox> 
     </div>
   </div>
-
+-->
 
   <h3 class="titleTexts">
     Statistics

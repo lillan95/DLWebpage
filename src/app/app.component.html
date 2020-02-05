@@ -8,7 +8,7 @@
   <div class="sideBar " style="align-content: center;">
     <div class="">
         <a routerLink="overview">
-          <img src="../assets/icons/digpro_leverans.svg" style="margin-left: 1.5em; height:200px; width: 200px; ">
+          <img src="../assets/icons/leverans.svg" style="margin-left: 1.5em; height:200px; width: 200px; ">
         </a>
 
         <!-- TREE STUCTURE TEST <app-sites-sidebar></app-sites-sidebar>-->
@@ -22,7 +22,7 @@
         </ul>
       
       <!--
-      <h4 style="color: white; text-align: center; margin-top: 2em">Digpro Leveransgruppen</h4>-->
+      <h4 style="color: white; text-align: center; margin-top: 2em"> Leveransgruppen</h4>-->
       <!--<ul class="sites" >
         <li *ngFor="let site of sites" [class.selected]="site === selectedSite" (click)="onSelect(site)">
           <a routerLink="{{site.page}}">
@@ -36,10 +36,10 @@
         <a href="http://bob/">
           <img src="../assets/icons/bob_w.svg" style="height:50px; width: 50px; ">
         </a>
-        <a href="https://bugzilla.digpro.se/">
+        <a href="https://www.bugzilla.org">
           <img src="../assets/icons/bz-w.svg" style="height:50px; width: 50px; ">
         </a>
-        <a href="https://wiki.digpro.se/index.php/Main_Page">
+        <a href="https://en.wikipedia.org">
           <img src="../assets/icons/wiki-w.svg" style="height:50px; width: 50px; ">
         </a>
         <!--<span id="bz"></span>
@@ -80,7 +80,7 @@
     <div id="siteContents">
       <router-outlet></router-outlet>
 
-      <app-messages></app-messages>
+      <!--<app-messages></app-messages>-->
     </div>
   </div>
 

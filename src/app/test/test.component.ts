@@ -79,6 +79,7 @@ const dataBase2: DataElement[] = [
 
 export class TestComponent implements OnInit {
   
+  public bugsQueue = 10;
 
   value = 'Click to change names here. It will scroll if too long.';
   

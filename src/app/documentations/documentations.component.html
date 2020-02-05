@@ -1,12 +1,12 @@
 <div class="All">
   <div class="overviewbox row">
     <div class="col-sm-7" >
-      <div class="row" > <!-- (click)="isCollapsed1 = !isCollapsed1"[attr.aria-expanded]="!isCollapsed1" aria-controls="collapseExample" -->
+      <div class="row" > <!--(click)="isCollapsed1 = !isCollapsed1"[attr.aria-expanded]="!isCollapsed1" aria-controls="collapseExample" > <!-- -->
         <div class="col-sm-10" style="position: relative;">
 
           <h3 class=""><i class="fa fa-map"></i> Manuals </h3>
           
-          <img  id = "c" src="../assets/icons/divider.svg" > 
+          <!--<img  id = "c" src="../assets/icons/divider.svg" > -->
           
         </div>
         <!--<div class="col-md-1">
@@ -14,9 +14,9 @@
             <h3 [hidden]="isCollapsed1"><i class="fa fa-angle-up"></i></h3>
           </div>-->
       </div>
-      <div class="whiteContentsBox"> <!-- [ngbCollapse]="isCollapsed1" -->
+      <div class="whiteContentsBox"> <!-- [ngbCollapse]="isCollapsed1">  -->
         
-        <div style="border:solid; border-color:rgba(0, 0, 0, 0.2)">
+        <div class=" whiteInnerSystemBox" >
           <div class="whiteStatusBox" *ngFor="let data of datas">
             {{data}}
 
@@ -44,12 +44,12 @@
 
 
 
-  <div class="row">
+  <div id="docks" class="row">
     <div class="col-sm-7">
       <h3 class="titleTexts">
         Dock needed (10)
       </h3> 
-      <div class="content">
+      <div class="content docks">
         <table class=" table table-hover ">
           <thead>
             <tr>
@@ -71,7 +71,7 @@
       <h3 class="titleTexts">
         Dokument statistics
       </h3> 
-      <div class="content" >
+      <div class="content docks" >
         <table class=" table table-hover ">
           <tbody>
               <tr *ngFor="let data of datas">

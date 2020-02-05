@@ -29,6 +29,10 @@ h3{
     color: white !important;
 }
 
+h4{
+    
+    color: white !important;
+}
 
 
 /*
@@ -56,7 +60,7 @@ h3{
 
 /* STATUS */
 .statusBox {
-    margin-top: 1em;
+    margin-bottom: 1em;
     padding: 1em;
     border: 1px;
     border-style: solid;
@@ -97,12 +101,12 @@ h3{
     color: white;
 }
 
-/*.overviewbox{
-    padding-top: 2em;
-}*/
+.overviewbox{
+    margin-bottom: 2em;
+}
 .contentsBox{
     height: inherit;/*22em;*/
-    overflow: hidden;
+    overflow: auto;
     /*overflow-y: scroll;*/
     padding: 0 2em 2em 0;
     
@@ -126,6 +130,14 @@ h3{
     border-color: grey;   /*use?*/
     background-color: white;
 }
+
+.whiteInnerSystemBox{
+    border:solid; 
+    border-color:rgba(0, 0, 0, 0.1);
+    background-color:rgba(0, 0, 0, 0.2)    
+} 
+
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -185,7 +197,7 @@ h3{
     text-overflow: ellipsis;
 }
 .titleTexts{
-    font-size: 1.5em;
+    font-size: 1em;
     color: white;
     cursor: unset;
 }
@@ -226,4 +238,21 @@ h3{
 
 .P1 {
     background-color: #ffcdd2   ;
+}
+
+
+.openW{
+    height: 22em;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    min-width: 80%;
+    max-width: 100%;
+}
+
+.closedW{
+  min-height: 3em;
+  max-height: 5em;
+  max-width: 100%;
+  max-width: 100%;
+  /*width: 32em;*/
 }

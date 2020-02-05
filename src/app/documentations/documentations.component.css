@@ -30,3 +30,7 @@ height: auto;
 width: 115%;
 
 }
+
+.docks{
+    max-height: 14em;
+}

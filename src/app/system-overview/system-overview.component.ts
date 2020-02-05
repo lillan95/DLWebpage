@@ -32,7 +32,7 @@ export class SystemOverviewComponent implements OnInit {
       this.change = event.target.value;
     }
     
-    comment = ['This is difficult'];
+    comment = ['This will be comments'];
     //memos: Memo[] = [];
     addComment(newComment: string) {
       console.log("add new memo" + newComment)

@@ -9,7 +9,7 @@
 -->
 
 <div class="overviewbox row">
-  <div class="col-sm-6 h-100">
+  <div class="col-sm-10 h-100">
 
     <div class="dark-div  resizeDiv " [ngClass]="{openW: isCollapsed1 == true, closedW: isCollapsed1 != true}">
       <div class="row" (click)="isCollapsed1 = !isCollapsed1"[attr.aria-expanded]="!isCollapsed1" aria-controls="collapseExample">
@@ -55,7 +55,7 @@
       </div>
     </div>
 
-    <div class="dark-div resizeDiv " [ngClass]="{openW: isCollapsed2 == true, closedW: isCollapsed2 != true}" ><!--style="overflow: auto;"-->
+    <div class="dark-div resizeDiv " [ngClass]="{openW: isCollapsed2 == true, closedW: isCollapsed2 != true}" > <!--style="overflow: auto;"-->
       <div class="" >
         <div class="row" (click)="isCollapsed2 = !isCollapsed2"[attr.aria-expanded]="!isCollapsed2" aria-controls="collapseExample">
           <div class="dark-header col-sm-10">
